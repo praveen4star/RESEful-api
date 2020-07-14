@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>wiki api</title>
+    </head>
+    <body>
+        <form action="/article" method="post">
+            <input type="text" name="title" placeholder="title">
+            <input type="text" name= "content" placeholder="content">
+            <input type="submit" value="Submit">
+        </form>
+        <% Articles.forEach(function(data){ %>
+            <form action="/article/<%= data._id %>?_method=DELETE" method="POST">
+            <button type="submit">DELETE</button></form>
+            <h1><%= data.title %></h1>
+            <h4><%= data.content %></h4>
+       <% }); %>
+    </body>
+</html>
